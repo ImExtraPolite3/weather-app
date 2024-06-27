@@ -1,4 +1,4 @@
-import { displayInfo } from './dom';
+import { getInfo } from './dom';
 import './style.css';
 
-displayInfo();
+getInfo();
