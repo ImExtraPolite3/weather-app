@@ -1,11 +1,11 @@
-import currentInfo from "./getInfo";
+import searchInfo from "./getInfo";
 
 function displayInfo() {
   const user = document.getElementById('user');
   const submit = document.querySelector('.submit');
 
   submit.addEventListener('click', () => {
-    currentInfo(user.value);
+    searchInfo(user.value);
   });
 }
 

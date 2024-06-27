@@ -1,5 +1,5 @@
-async function currentInfo(location) {
-  const getInfo = await fetch('https://api.weatherapi.com/v1/forecast.json?key=a9fa1babbb44465cbd753452242606&q=' + location, {mode: 'cors'})
+export default async function searchInfo(location) {
+  const getInfo = await fetch('https://api.weatherapi.com/v1/forecast.json?days=3&key=a9fa1babbb44465cbd753452242606&q=' + location, {mode: 'cors'})
     .then(function(response) {
       return response.json();
     })
@@ -10,5 +10,3 @@ async function currentInfo(location) {
       console.log('please enter city name');
     });
 }
-
-export { currentInfo }
