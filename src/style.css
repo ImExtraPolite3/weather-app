@@ -26,6 +26,11 @@ body {
   align-items: center;
 }
 
+.all-forecast {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .hide {
   display: none;
 }

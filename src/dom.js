@@ -32,4 +32,24 @@ function displayDegreeInfo(grabDegree, grabWeatherImg, grabWeather) {
   weather.textContent = grabWeather; 
 }
 
-export { getInfo, displayLocationName, displayLocalTime, displayDegreeInfo };
+function displayFeelsLike(grabFeelsLike) {
+  const feelLike = document.querySelector('.feels-like');
+
+  feelLike.textContent = 'Feels like: ' + grabFeelsLike + '°F';
+}
+
+function createAllForecastDiv() {
+  const all_forecast = document.querySelector('.all-forecast');
+
+  for (let i = 0; i < 24; i++) {
+    const eachForecast = document.createElement('div');
+    eachForecast.classList.add('forecasts');
+    all_forecast.appendChild(eachForecast);
+  }
+}
+
+function grabForecasts() {
+  
+}
+
+export { getInfo, displayLocationName, displayLocalTime, displayDegreeInfo, displayFeelsLike, createAllForecastDiv };
