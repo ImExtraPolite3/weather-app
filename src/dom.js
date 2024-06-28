@@ -4,6 +4,7 @@ function getInfo() {
   const user = document.getElementById('user');
   const submit = document.querySelector('.submit');
 
+  searchInfo('london');
   submit.addEventListener('click', () => {
     searchInfo(user.value);
   });
