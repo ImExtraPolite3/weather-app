@@ -4,7 +4,7 @@ function getInfo() {
   const user = document.getElementById('user');
   const submit = document.querySelector('.submit');
 
-  searchInfo('london');
+  searchInfo('new york');
   submit.addEventListener('click', () => {
     searchInfo(user.value);
   });
@@ -27,7 +27,7 @@ function displayDegreeInfo(grabDegree, grabWeatherImg, grabWeather) {
   const weatherImg = document.querySelector('.weather-img');
   const weather = document.querySelector('.weather');
 
-  degree.textContent = grabDegree;
+  degree.textContent = grabDegree + '°F';
   weatherImg.src = grabWeatherImg;
   weather.textContent = grabWeather; 
 }
