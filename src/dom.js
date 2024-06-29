@@ -9,7 +9,6 @@ function getInfo() {
     if (user.value === '') {
       event.preventDefault();
     } else {
-      console.log(user.value);
       searchInfo(user.value);
       user.value = '';
       showLoading();
