@@ -3,11 +3,34 @@ import searchInfo from "./getInfo";
 function getInfo() {
   const user = document.getElementById('user');
   const submit = document.querySelector('.submit');
+  const location = document.querySelector('.location-name');
 
   searchInfo('new york');
   submit.addEventListener('click', () => {
+    location.textContent = '';
     searchInfo(user.value);
+    user.value = '';
+    showLoading();
+    setTimeout(() => {
+      showAllInfo();
+    }, 2000);
   });
+}
+
+function showLoading() {
+  const info = document.querySelector('.all-info');
+  const loading = document.querySelector('.loading');
+
+  info.classList.add('hide');
+  loading.classList.remove('hide');
+}
+
+function showAllInfo() {
+  const info = document.querySelector('.all-info');
+  const loading = document.querySelector('.loading');
+
+  info.classList.remove('hide');
+  loading.classList.add('hide');
 }
 
 function displayLocationName(grabLocationName) {
@@ -19,7 +42,7 @@ function displayLocationName(grabLocationName) {
 function displayLocalTime(grabTime) {
   const time = document.querySelector('.local-time');
 
-  time.textContent = grabTime;
+  time.textContent = 'Local time: ' + grabTime;
 }
 
 function displayDegreeInfo(grabDegree, grabWeatherImg, grabWeather) {
@@ -46,20 +69,27 @@ function createAllForecastDiv() {
     eachForecast.classList.add('forecasts');
     const eachForecastTime = document.createElement('p');
     eachForecastTime.classList.add('forecast-time');
+    const degreeContainer = document.createElement('div');
     const eachForecastImg = document.createElement('img');
     eachForecastImg.classList.add('forecast-img');
+    const eachForecastDegree = document.createElement('h2');
+    eachForecastDegree.classList.add('forecast-degree');
     all_forecast.appendChild(eachForecast);
     eachForecast.appendChild(eachForecastTime);
-    eachForecast.appendChild(eachForecastImg);
+    eachForecast.appendChild(degreeContainer);
+    degreeContainer.appendChild(eachForecastDegree);
+    degreeContainer.appendChild(eachForecastImg);
   }
 }
 
-function grabForecasts(grabForecastDates, grabForecastImg, num) {
+function grabForecasts(grabForecastDates, grabForecastImg, grabForecastDegree, num) {
   const allForecastTime = document.querySelectorAll('.forecast-time');
   const allForecastImg = document.querySelectorAll('.forecast-img');
+  const allForecastDegree = document.querySelectorAll('.forecast-degree');
 
   allForecastTime[num].textContent = grabForecastDates;
-  allForecastImg[num].src = grabForecastImg
+  allForecastImg[num].src = grabForecastImg;
+  allForecastDegree[num].textContent = grabForecastDegree + '°F';
 }
 
 export { getInfo, displayLocationName, displayLocalTime, displayDegreeInfo, displayFeelsLike, createAllForecastDiv, grabForecasts };
