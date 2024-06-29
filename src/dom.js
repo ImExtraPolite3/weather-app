@@ -3,17 +3,20 @@ import searchInfo from "./getInfo";
 function getInfo() {
   const user = document.getElementById('user');
   const submit = document.querySelector('.submit');
-  const location = document.querySelector('.location-name');
 
   searchInfo('new york');
-  submit.addEventListener('click', () => {
-    location.textContent = '';
-    searchInfo(user.value);
-    user.value = '';
-    showLoading();
-    setTimeout(() => {
-      showAllInfo();
-    }, 2000);
+  submit.addEventListener('click', (event) => {
+    if (user.value === '') {
+      event.preventDefault();
+    } else {
+      console.log(user.value);
+      searchInfo(user.value);
+      user.value = '';
+      showLoading();
+      setTimeout(() => {
+        showAllInfo();
+      }, 2000);
+    }
   });
 }
 
