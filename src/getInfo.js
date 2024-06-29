@@ -13,6 +13,6 @@ export default async function searchInfo(location) {
       grabForecasts(info.forecast.forecastday[0].hour[i].time, info.forecast.forecastday[0].hour[i].condition.icon, info.forecast.forecastday[0].hour[i].temp_f, i);
     }
   } catch {
-    console.log('doesnt exist');
+    confirm('Sorry, something went wrong. Please try again');
   }
 }
