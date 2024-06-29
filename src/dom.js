@@ -44,12 +44,22 @@ function createAllForecastDiv() {
   for (let i = 0; i < 24; i++) {
     const eachForecast = document.createElement('div');
     eachForecast.classList.add('forecasts');
+    const eachForecastTime = document.createElement('p');
+    eachForecastTime.classList.add('forecast-time');
+    const eachForecastImg = document.createElement('img');
+    eachForecastImg.classList.add('forecast-img');
     all_forecast.appendChild(eachForecast);
+    eachForecast.appendChild(eachForecastTime);
+    eachForecast.appendChild(eachForecastImg);
   }
 }
 
-function grabForecasts() {
-  
+function grabForecasts(grabForecastDates, grabForecastImg, num) {
+  const allForecastTime = document.querySelectorAll('.forecast-time');
+  const allForecastImg = document.querySelectorAll('.forecast-img');
+
+  allForecastTime[num].textContent = grabForecastDates;
+  allForecastImg[num].src = grabForecastImg
 }
 
-export { getInfo, displayLocationName, displayLocalTime, displayDegreeInfo, displayFeelsLike, createAllForecastDiv };
+export { getInfo, displayLocationName, displayLocalTime, displayDegreeInfo, displayFeelsLike, createAllForecastDiv, grabForecasts };
