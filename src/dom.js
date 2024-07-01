@@ -8,14 +8,11 @@ function getInfo() {
   submit.addEventListener('click', (event) => {
     if (user.value === '') {
       event.preventDefault();
-    } else {
-      searchInfo(user.value);
-      user.value = '';
-      showLoading();
-      setTimeout(() => {
-        showAllInfo();
-      }, 2000);
-    }
+    } 
+    showLoading();
+    searchInfo(user.value);
+    user.value = '';
+    showAllInfo();
   });
 }
 
