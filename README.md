@@ -1,3 +1,3 @@
 # weather-app
 
-Using the WeatherAPI, I created
+Using the WeatherAPI, I created a
