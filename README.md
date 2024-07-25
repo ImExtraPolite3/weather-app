@@ -1,3 +1,3 @@
 # weather-app
 
-Using the WeatherAPI, I created a website that displayed the current
+Using the WeatherAPI, I created a website that displayed the current temparture
