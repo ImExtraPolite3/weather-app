@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [getApi, setApi] = useState(null);
+  const [locationText, setLocationText] = useState('');
   const [getLocation, setLocation] = useState('London');
 
   useEffect(() => {
@@ -17,7 +18,13 @@ function App() {
     <>
       {getApi !== null && (
         <div className="container">
-          <div className="search"></div>
+          <div className="search">
+            <input
+              type="text"
+              onChange={(e) => setLocationText(e.target.value)}
+            />
+            <button onClick={() => setLocation(locationText)}>search</button>
+          </div>
           <div className="content">
             <p>{getApi.location.name}</p>
           </div>
