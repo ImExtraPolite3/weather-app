@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const [getApi, setApi] = useState(null);
   const [locationText, setLocationText] = useState('');
-  const [getLocation, setLocation] = useState('London');
+  const [getLocation, setLocation] = useState('new york');
 
   useEffect(() => {
     fetch(
@@ -13,6 +13,12 @@ function App() {
       .then((json) => setApi(json))
       .catch((error) => console.log(error));
   });
+
+  const HourlyInfo = ({ time }) => {
+    return time.map((info, index) => {
+      return <p key={index}>{info.time}</p>;
+    });
+  };
 
   return (
     <>
@@ -26,7 +32,9 @@ function App() {
             <button onClick={() => setLocation(locationText)}>search</button>
           </div>
           <div className="content">
+            <h1>{getApi.current.temp_f}</h1>
             <p>{getApi.location.name}</p>
+            <HourlyInfo time={getApi.forecast.forecastday[0].hour} />
           </div>
         </div>
       )}
