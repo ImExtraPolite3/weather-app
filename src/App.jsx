@@ -16,7 +16,12 @@ function App() {
 
   const HourlyInfo = ({ time }) => {
     return time.map((info, index) => {
-      return <p key={index}>{info.time}</p>;
+      return (
+        <div key={index}>
+          <p>{info.time}</p>
+          <img src={info.condition.icon} alt="" />
+        </div>
+      );
     });
   };
 
