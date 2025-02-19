@@ -12,14 +12,17 @@ function App() {
       .then((response) => response.json())
       .then((json) => setApi(json))
       .catch((error) => console.log(error));
-  });
+  }, [getLocation]);
 
   const HourlyInfo = ({ time }) => {
     return time.map((info, index) => {
       return (
         <div key={index}>
           <p>{info.time}</p>
-          <img src={info.condition.icon} alt="" />
+          <div>
+            <h3>{info.temp_f}</h3>
+            <img src={info.condition.icon} alt="" />
+          </div>
         </div>
       );
     });
