@@ -32,17 +32,24 @@ function App() {
     <>
       {getApi !== null && (
         <div className="container">
-          <div className="search">
-            <input
-              type="text"
-              onChange={(e) => setLocationText(e.target.value)}
-            />
-            <button onClick={() => setLocation(locationText)}>search</button>
+          <div className="header">
+            <h1>Weather App</h1>
+            <div className="search">
+              <input
+                type="text"
+                onChange={(e) => setLocationText(e.target.value)}
+              />
+              <button onClick={() => setLocation(locationText)}>search</button>
+            </div>
           </div>
           <div className="content">
-            <h1>{getApi.current.temp_f}</h1>
-            <p>{getApi.location.name}</p>
-            <HourlyInfo time={getApi.forecast.forecastday[0].hour} />
+            <div className="current-info">
+              <h1>{getApi.current.temp_f}</h1>
+              <p>{getApi.location.name}</p>
+            </div>
+            <div className="future-info">
+              <HourlyInfo time={getApi.forecast.forecastday[0].hour} />
+            </div>
           </div>
         </div>
       )}
