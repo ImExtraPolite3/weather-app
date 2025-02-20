@@ -15,13 +15,17 @@ function App() {
   }, [getLocation]);
 
   const HourlyInfo = ({ time }) => {
-    const currentTime = new Date().toLocaleString('en-GB');
+    const currentTime = new Date();
 
     let filtered = time
       .map((info) => info.time)
       .filter((newArray) => newArray > '2025-02-19 02:00');
 
-    console.log(currentTime);
+    console.log(
+      `${currentTime.getFullYear()}-0${
+        currentTime.getUTCMonth() + 1
+      }-${currentTime.getDate()} ${currentTime.getHours()}:${currentTime.getMinutes()}`
+    );
     console.log(filtered);
 
     // return time.map((info, index) => {
