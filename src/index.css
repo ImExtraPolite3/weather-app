@@ -27,6 +27,42 @@
   }
 }
 
-.future-info {
+.search {
+  border: solid black 1px;
   display: flex;
+  align-items: center;
+}
+
+.search > input {
+  width: 20vw;
+  padding: 10px 5px;
+  font-size: 1rem;
+  border: none;
+}
+
+.search > button {
+  padding: 10px 5px;
+  border: none;
+  font-size: 1rem;
+}
+
+.future-info {
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  margin: auto;
+}
+
+.each-time {
+  width: 20vw;
+}
+
+.each-time > div {
+  display: flex;
+  align-items: center;
+
+  h3 {
+    font-size: 1.5rem;
+  }
 }

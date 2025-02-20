@@ -15,17 +15,27 @@ function App() {
   }, [getLocation]);
 
   const HourlyInfo = ({ time }) => {
-    return time.map((info, index) => {
-      return (
-        <div key={index}>
-          <p>{info.time}</p>
-          <div>
-            <h3>{info.temp_f}</h3>
-            <img src={info.condition.icon} alt="" />
-          </div>
-        </div>
-      );
-    });
+    const currentTime = new Date().toLocaleString('en-GB');
+
+    let filtered = time
+      .map((info) => info.time)
+      .filter((newArray) => newArray > '2025-02-19 02:00');
+
+    console.log(currentTime);
+    console.log(filtered);
+
+    // return time.map((info, index) => {
+    //   return (
+    //     <div className="each-time" key={index}>
+    //       <p>{info.time}</p>
+    //       <div>
+    //         <h3>{info.temp_f}°</h3>
+    //         <img src={info.condition.icon} alt="" />
+    //       </div>
+    //     </div>
+    //   );
+    // }).filter((newInfo) => {
+    // });
   };
 
   return (
