@@ -47,15 +47,16 @@
 }
 
 .future-info {
+  border: solid;
   width: 60vw;
   display: flex;
-  align-items: center;
   overflow-x: scroll;
   margin: auto;
 }
 
 .each-time {
-  width: 20vw;
+  width: 40vw;
+  border: solid;
 }
 
 .each-time > div {
