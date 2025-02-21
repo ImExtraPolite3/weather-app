@@ -16,30 +16,26 @@ function App() {
 
   const HourlyInfo = ({ time }) => {
     const currentTime = new Date();
+    const timeToString = `${currentTime.getFullYear()}-0${
+      currentTime.getUTCMonth() + 1
+    }-${currentTime.getDate()} ${
+      currentTime.getHours() - 1
+    }:${currentTime.getMinutes()}`;
 
-    let filtered = time
-      .map((info) => info.time)
-      .filter((newArray) => newArray > '2025-02-19 02:00');
-
-    console.log(
-      `${currentTime.getFullYear()}-0${
-        currentTime.getUTCMonth() + 1
-      }-${currentTime.getDate()} ${currentTime.getHours()}:${currentTime.getMinutes()}`
-    );
-    console.log(filtered);
-
-    // return time.map((info, index) => {
-    //   return (
-    //     <div className="each-time" key={index}>
-    //       <p>{info.time}</p>
-    //       <div>
-    //         <h3>{info.temp_f}°</h3>
-    //         <img src={info.condition.icon} alt="" />
-    //       </div>
-    //     </div>
-    //   );
-    // }).filter((newInfo) => {
-    // });
+    return time
+      .map((info) => info)
+      .filter((newArray) => newArray.time > timeToString)
+      .map((newInfo, index) => {
+        return (
+          <div className="each-time" key={index}>
+            <p>{newInfo.time}</p>
+            <div>
+              <h3>{newInfo.temp_f}°</h3>
+              <img src={newInfo.condition.icon} alt="" />
+            </div>
+          </div>
+        );
+      });
   };
 
   return (
