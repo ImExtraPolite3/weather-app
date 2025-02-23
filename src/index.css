@@ -4,6 +4,11 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 15vw 85vw;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -47,7 +52,7 @@
 }
 
 .future-info {
-  width: 60vw;
+  width: 50vw;
   grid-template-rows: 150px;
   overflow-x: scroll;
   margin: auto;

@@ -4,6 +4,7 @@ function App() {
   const [getApi, setApi] = useState(null);
   const [locationText, setLocationText] = useState('');
   const [getLocation, setLocation] = useState('new york');
+  const [getHistory, setHistory] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -22,6 +23,7 @@ function App() {
       currentTime.getHours() - 1
     }:${currentTime.getMinutes()}`;
 
+    console.log(timeToString);
     return time
       .map((info) => info)
       .filter((newArray) => newArray.time > timeToString)
@@ -38,27 +40,50 @@ function App() {
       });
   };
 
+  function History({ pastSearched }) {
+    return pastSearched.map((searched, index) => {
+      return pastSearched.length > 0 && <button key={index}>{searched}</button>;
+    });
+  }
+
+  function handleHistory() {
+    setHistory(() => [...getHistory, locationText]);
+  }
+
   return (
     <>
       {getApi !== null && (
         <div className="container">
-          <div className="header">
-            <h1>Weather App</h1>
-            <div className="search">
-              <input
-                type="text"
-                onChange={(e) => setLocationText(e.target.value)}
-              />
-              <button onClick={() => setLocation(locationText)}>search</button>
-            </div>
+          <div className="history">
+            <h3>History</h3>
+            <History pastSearched={getHistory} />
           </div>
-          <div className="content">
-            <div className="current-info">
-              <h1>{getApi.current.temp_f}°</h1>
-              <p>{getApi.location.name}</p>
+          <div className="all-content">
+            <div className="header">
+              <h1>Weather App</h1>
+              <div className="search">
+                <input
+                  type="text"
+                  onChange={(e) => setLocationText(e.target.value)}
+                />
+                <button
+                  onClick={() => {
+                    setLocation(locationText);
+                    handleHistory();
+                  }}
+                >
+                  search
+                </button>
+              </div>
             </div>
-            <div className="future-info">
-              <HourlyInfo time={getApi.forecast.forecastday[0].hour} />
+            <div className="content">
+              <div className="current-info">
+                <h1>{getApi.current.temp_f}°</h1>
+                <p>{getApi.location.name}</p>
+              </div>
+              <div className="future-info">
+                <HourlyInfo time={getApi.forecast.forecastday[0].hour} />
+              </div>
             </div>
           </div>
         </div>
