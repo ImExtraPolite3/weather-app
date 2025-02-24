@@ -4,11 +4,6 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 15vw 85vw;
-}
-
 .header {
   display: flex;
   align-items: center;
