@@ -4,7 +4,6 @@ function App() {
   const [getApi, setApi] = useState(null);
   const [locationText, setLocationText] = useState('');
   const [getLocation, setLocation] = useState('new york');
-  const [getHistory, setHistory] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -40,24 +39,10 @@ function App() {
       });
   };
 
-  function History({ pastSearched }) {
-    return pastSearched.map((searched, index) => {
-      return pastSearched.length > 0 && <button key={index}>{searched}</button>;
-    });
-  }
-
-  function handleHistory() {
-    setHistory(() => [...getHistory, locationText]);
-  }
-
   return (
     <>
       {getApi !== null && (
         <div className="container">
-          <div className="history">
-            <h3>History</h3>
-            <History pastSearched={getHistory} />
-          </div>
           <div className="all-content">
             <div className="header">
               <h1>Weather App</h1>
