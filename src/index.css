@@ -4,6 +4,11 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 
+body {
+  background-color: rgb(20, 20, 20);
+  color: white;
+}
+
 .header {
   display: flex;
   align-items: center;

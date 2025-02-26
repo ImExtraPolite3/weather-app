@@ -22,7 +22,6 @@ function App() {
       currentTime.getHours() - 1
     }:${currentTime.getMinutes()}`;
 
-    console.log(timeToString);
     return time
       .map((info) => info)
       .filter((newArray) => newArray.time > timeToString)
@@ -54,7 +53,6 @@ function App() {
                 <button
                   onClick={() => {
                     setLocation(locationText);
-                    handleHistory();
                   }}
                 >
                   search
@@ -63,6 +61,7 @@ function App() {
             </div>
             <div className="content">
               <div className="current-info">
+                <p>{locationText}</p>
                 <h1>{getApi.current.temp_f}°</h1>
                 <p>{getApi.location.name}</p>
               </div>
