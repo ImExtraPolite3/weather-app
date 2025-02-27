@@ -61,7 +61,7 @@ function App() {
             </div>
             <div className="content">
               <div className="current-info">
-                <p>{locationText}</p>
+                {/* <p>{locationText}</p> */}
                 <h1>{getApi.current.temp_f}°</h1>
                 <p>{getApi.location.name}</p>
               </div>
