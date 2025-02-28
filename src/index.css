@@ -33,7 +33,7 @@ body {
 }
 
 .search {
-  border: solid black 1px;
+  border: solid white 1px;
   display: flex;
   align-items: center;
 }
