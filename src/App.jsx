@@ -18,9 +18,13 @@ function App() {
     const currentTime = new Date();
     const timeToString = `${currentTime.getFullYear()}-0${
       currentTime.getUTCMonth() + 1
-    }-${currentTime.getDate()} ${
+    }-0${currentTime.getDate()} ${
       currentTime.getHours() - 1
-    }:${currentTime.getMinutes()}`;
+    }:0${currentTime.getMinutes()}`;
+
+    {
+      console.log(timeToString);
+    }
 
     return time
       .map((info) => info)
@@ -61,11 +65,11 @@ function App() {
             </div>
             <div className="content">
               <div className="current-info">
-                {/* <p>{locationText}</p> */}
                 <h1>{getApi.current.temp_f}°</h1>
                 <p>{getApi.location.name}</p>
               </div>
               <div className="future-info">
+                {console.log(getApi.forecast.forecastday[0].hour)}
                 <HourlyInfo time={getApi.forecast.forecastday[0].hour} />
               </div>
             </div>
