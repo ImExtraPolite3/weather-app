@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [getApi, setApi] = useState(null);
-  const [locationText, setLocationText] = useState('');
+  const [locationText, setLocationText] = useState('new york');
   const [getLocation, setLocation] = useState('new york');
 
   useEffect(() => {
